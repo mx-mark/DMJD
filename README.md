@@ -1,2 +1,2 @@
 # DMJD
-PyTorch implementation of Disjoint Masking with Joint Distillation for Efficient Masked Image Modeling
+This is a official repository of DMJD. We will open our models and code soon. 
