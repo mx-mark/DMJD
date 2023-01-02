@@ -11,7 +11,7 @@ GPUS=8
 OUTPUT_DIR='/PATH/TO/OUTPUT/DIR'
 OMP_NUM_THREADS=1 python -m torch.distributed.launch --nproc_per_node=${GPUS} main_pretrain.py \
     --batch_size 64 \
-    --model convmae_convvit_base_patch16_dec8_hog \
+    --model dmjd_convit_base_patch16_dec8_hog \
     --mask_ratio 0.6 \
     --mask_type block \
     --pred_type hog \
@@ -29,4 +29,4 @@ OMP_NUM_THREADS=1 python -m torch.distributed.launch --nproc_per_node=${GPUS} ma
 - Here we use HOG as the laerning target for better representation learning.
 - Training time is ~101h in 8× Nvidia A100 (40GB) (400 epochs).
 
-To train ConViT-Large, set `--model convmae_convvit_large_patch16_dec8_hog` and `--clip_grad 3.0` for stable training.
+To train ConViT-Large, set `--model dmjd_convit_large_patch16_dec8_hog` and `--clip_grad 3.0` for stable training.
