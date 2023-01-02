@@ -33,7 +33,7 @@ from engine_pretrain import train_one_epoch
 
 
 def get_args_parser():
-    parser = argparse.ArgumentParser('ConvMAE pre-training', add_help=False)
+    parser = argparse.ArgumentParser('DMJD pre-training', add_help=False)
     parser.add_argument('--batch_size', default=64, type=int,
                         help='Batch size per GPU (effective batch size is batch_size * accum_iter * # gpus')
     parser.add_argument('--epochs', default=400, type=int)
@@ -41,7 +41,7 @@ def get_args_parser():
                         help='Accumulate gradient iterations (for increasing the effective batch size under memory constraints)')
 
     # Model parameters
-    parser.add_argument('--model', default='convmae_convvit_base_patch16', type=str, metavar='MODEL',
+    parser.add_argument('--model', default='dmjd_convit_base_patch16_dec8_hog', type=str, metavar='MODEL',
                         help='Name of model to train')
     parser.add_argument('--input_size', default=224, type=int,
                         help='images input size')
@@ -77,7 +77,7 @@ def get_args_parser():
                         help='Clip gradient norm (default: None, no clipping)')
 
     # Dataset parameters
-    parser.add_argument('--data_path', default='/datasets01/imagenet_full_size/061417/', type=str,
+    parser.add_argument('--data_path', default='./', type=str,
                         help='dataset path')
 
     parser.add_argument('--output_dir', default='./output_dir',
