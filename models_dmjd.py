@@ -31,15 +31,15 @@ def expand_patches_indice(ids_shuffle, sub_w, H, W):
     return ids_xy, ids_xy1, ids_x1y, ids_x1y1
 
 
-class MaskedAutoencoderConvViT(nn.Module):
-    """ Masked Autoencoder with VisionTransformer backbone
+class DMJDConViT(nn.Module):
+    """ DMJD with ConViT backbone
     """
     def __init__(self, img_size=224, patch_size=16, in_chans=3, embed_dim=1024, depth=24, 
                  num_heads=16, decoder_embed_dim=512, decoder_depth=8, decoder_num_heads=16,
                  mlp_ratio=4., norm_layer=nn.LayerNorm, decoder_pred_dim=768):
         super().__init__()
         # --------------------------------------------------------------------------
-        # ConvMAE encoder specifics
+        # DMJD encoder specifics
         # --------------------------------------------------------------------------
         self.patch_embed1 = PatchEmbed(
                 img_size=img_size[0], patch_size=patch_size[0], in_chans=in_chans, embed_dim=embed_dim[0])
@@ -69,7 +69,7 @@ class MaskedAutoencoderConvViT(nn.Module):
         self.norm = norm_layer(embed_dim[-1])
         self.embed_dim = embed_dim
         # --------------------------------------------------------------------------
-        # ConvMAE decoder specifics
+        # DMJD decoder specifics
         # --------------------------------------------------------------------------
         # Masked prediction branch
         self.decoder_embed = nn.Linear(embed_dim[-1], decoder_embed_dim, bias=True)
@@ -373,24 +373,24 @@ class MaskedAutoencoderConvViT(nn.Module):
         return loss, pred, mask
 
 
-def convmae_convvit_base_patch16_dec512d2b_hog(**kwargs):
-    model = MaskedAutoencoderConvViT(
+def dmjd_convit_base_patch16_dec512d2b_hog(**kwargs):
+    model = DMJDConViT(
         img_size=[224, 56, 28], patch_size=[4, 2, 2], embed_dim=[256, 384, 768], depth=[2, 2, 11], num_heads=12,
         decoder_embed_dim=512, decoder_depth=2, decoder_num_heads=16,
         mlp_ratio=[8, 8, 4], norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     return model
 
 
-def convmae_convvit_base_patch16_dec512d8b_hog(**kwargs):
-    model = MaskedAutoencoderConvViT(
+def dmjd_convit_base_patch16_dec512d8b_hog(**kwargs):
+    model = DMJDConViT(
         img_size=[224, 56, 28], patch_size=[4, 2, 2], embed_dim=[256, 384, 768], depth=[2, 2, 11], num_heads=12,
         decoder_embed_dim=512, decoder_depth=8, decoder_num_heads=16,
         mlp_ratio=[8, 8, 4], norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     return model
 
 
-def convmae_convvit_large_patch16_dec512d8b_hog(**kwargs):
-    model = MaskedAutoencoderConvViT(
+def dmjd_convit_large_patch16_dec512d8b_hog(**kwargs):
+    model = DMJDConViT(
         img_size=[224, 56, 28], patch_size=[4, 2, 2], embed_dim=[384, 768, 1024], depth=[2, 2, 23], num_heads=16,
         decoder_embed_dim=512, decoder_depth=8, decoder_num_heads=16, 
         mlp_ratio=[8, 8, 4], norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
@@ -398,6 +398,6 @@ def convmae_convvit_large_patch16_dec512d8b_hog(**kwargs):
 
 
 # set recommended archs
-convmae_convvit_base_patch16_dec2_hog = convmae_convvit_base_patch16_dec512d2b_hog
-convmae_convvit_base_patch16_dec8_hog = convmae_convvit_base_patch16_dec512d8b_hog
-convmae_convvit_large_patch16_dec8_hog = convmae_convvit_large_patch16_dec512d8b_hog
+dmjd_convit_base_patch16_dec2_hog = dmjd_convit_base_patch16_dec512d2b_hog
+dmjd_convit_base_patch16_dec8_hog = dmjd_convit_base_patch16_dec512d8b_hog
+dmjd_convit_large_patch16_dec8_hog = dmjd_convit_large_patch16_dec512d8b_hog
