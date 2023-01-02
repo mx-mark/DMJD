@@ -27,7 +27,7 @@ from util.misc import NativeScalerWithGradNormCount as NativeScaler
 from util.datasets import build_pretraining_dataset
 from util.instance_whitening import InstanceWhitening
 
-import models_convmae
+import models_dmjd
 
 from engine_pretrain import train_one_epoch
 
@@ -168,7 +168,7 @@ def main(args):
     )
 
     # define the model
-    model = models_convmae.__dict__[args.model](decoder_pred_dim=decoder_pred_dim)
+    model = models_dmjd.__dict__[args.model](decoder_pred_dim=decoder_pred_dim)
 
     model.to(device)
 
