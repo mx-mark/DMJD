@@ -51,14 +51,14 @@ class ConvViT(vision_transformer.ConvViT):
         return outcome
 
 
-def convvit_base_patch16(**kwargs):
+def convit_base_patch16(**kwargs):
     model = ConvViT(
         img_size=[224, 56, 28], patch_size=[4, 2, 2], embed_dim=[256, 384, 768], depth=[2, 2, 11], num_heads=12, mlp_ratio=[8, 8, 4], qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
     return model
 
 
-def convvit_large_patch16(**kwargs):
+def convit_large_patch16(**kwargs):
     model = ConvViT(
         img_size=[224, 56, 28], patch_size=[4, 2, 2], embed_dim=[384, 768, 1024], depth=[2, 2, 23], num_heads=16, mlp_ratio=[8, 8, 4], qkv_bias=True,
         norm_layer=partial(nn.LayerNorm, eps=1e-6), **kwargs)
