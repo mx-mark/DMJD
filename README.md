@@ -78,6 +78,7 @@ This repo is built on top of [DeiT](https://github.com/facebookresearch/deit),  
 DMJD is released under the [MIT License](https://github.com/mx-mark/DMJD/blob/main/LICENSE).
 
 ## Citation
+If you find this repository useful, please consider giving a star ⭐ and citation:
 
 ```
 @Article{ma2022disjoint,
