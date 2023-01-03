@@ -7,7 +7,7 @@ Xin Ma<sup>1</sup>, Chang Liu<sup>2</sup>, Chunyu Xie<sup>3</sup>, Long Ye<sup>1
 
 </div>
 
-This repo is the official implementation of [Disjoint Masking with Joint Distillation for Efficient Masked Image Modeling](). It currently concludes codes and Pre-trained checkpoints.
+This repo is the official implementation of [Disjoint Masking with Joint Distillation for Efficient Masked Image Modeling](https://arxiv.org/abs/2301.00230). It currently concludes codes and Pre-trained checkpoints.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/94091472/210162854-da4afe07-4304-4e43-af55-45092270b479.png" width="1500">
@@ -80,5 +80,11 @@ DMJD is released under the [MIT License](https://github.com/mx-mark/DMJD/blob/ma
 ## Citation
 
 ```bash
+@Article{ma2022disjoint,
+      title   = {Disjoint Masking with Joint Distillation for Efficient Masked Image Modeling}, 
+      author  = {Xin Ma and Chang Liu and Chunyu Xie and Long Ye and Yafeng Deng and Xiangyang Ji},
+      journal = {arXiv:2301.00230},
+      year    = {2022},
+}
 ```
 
