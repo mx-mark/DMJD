@@ -79,7 +79,7 @@ DMJD is released under the [MIT License](https://github.com/mx-mark/DMJD/blob/ma
 
 ## Citation
 
-```bash
+```
 @Article{ma2022disjoint,
       title   = {Disjoint Masking with Joint Distillation for Efficient Masked Image Modeling}, 
       author  = {Xin Ma and Chang Liu and Chunyu Xie and Long Ye and Yafeng Deng and Xiangyang Ji},
